@@ -7,29 +7,63 @@
         xmlns:view ="clr-namespace:SML.Views"
         xmlns:viewModel="clr-namespace:SML.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600">
-    <Grid>
-        <Grid.Resources>
-            <DataTemplate DataType ="{x:Type viewModel:HomeViewModel}">
-                <view:HomeView/>
-            </DataTemplate>
-            <DataTemplate DataType ="{x:Type viewModel:EquationSolverViewModel}">
-                <view:EquationSolverView/>
-            </DataTemplate>
-        </Grid.Resources>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <TextBlock Text="Blyat" Grid.Column="0" Grid.Row="0"/>
-        <ContentControl
-            Grid.Column="1"
-            Grid.Row="1"
-            Margin="10"
-            Content="{Binding CurrentVM}"/>
-    </Grid>
+        Title="Simple math library by Policarp"
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        x:Name="mainWindow">
+    <Border Background="#0F0F2D" CornerRadius="10">
+        <Grid>
+            <Grid.Resources>
+                <DataTemplate DataType ="{x:Type viewModel:HomeViewModel}">
+                    <view:HomeView/>
+                </DataTemplate>
+                <DataTemplate DataType ="{x:Type viewModel:EquationSolverViewModel}">
+                    <view:EquationSolverView/>
+                </DataTemplate>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ContentControl
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="10"
+                Content="{Binding CurrentVM}"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Simple math library"
+                       FontSize="20" 
+                       Foreground="#CFCFCF"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="20,0,0,0"
+            />
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        HorizontalAlignment="Right"
+                       >
+               
+                <Button 
+                    VerticalAlignment="Top"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="20" Height="20"
+                        Margin="10"
+                        CommandParameter="{Binding ElementName=mainWindow}"
+                        Command="{Binding Close}">
+                    <Viewbox>
+                        <Image Source="{StaticResource cross}"/>
+                    </Viewbox>
+                </Button>
+                
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>

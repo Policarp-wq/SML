@@ -6,5 +6,11 @@
              xmlns:local="clr-namespace:SML"
              >
     <Application.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="cross" UriSource="Assets/cross.png"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/TextBoxTheme.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

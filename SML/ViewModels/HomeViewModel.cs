@@ -12,8 +12,9 @@ namespace SML.ViewModels
 {
     internal class HomeViewModel : ObservableObject
     {
-        private NavigationStore _navigationStore;
+        private readonly NavigationStore _navigationStore;
         public ICommand NavigateToEquationSolver { get; }
+
         public HomeViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;

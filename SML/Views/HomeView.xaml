@@ -6,11 +6,8 @@
              xmlns:local="clr-namespace:SML.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600"
-             Background="Aqua">
+             Background="#0F0F2D">
     <Grid>
-        <TextBlock Text="Sosi huy" FontSize="32"/>
-        <Button Width="80" Height="80"
-                Content="Next"
-                Command="{Binding NavigateToEquationSolver}"/>
+        <TextBox Style="{StaticResource CoolTextBox}" Text=" Lol" Width="250" Height="40"/>
     </Grid>
 </UserControl>
