@@ -63,11 +63,29 @@
     </ApplicationDefinition>
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Models\StringHandler.cs" />
+    <Compile Include="Models\TextManager.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
+    <Compile Include="ViewModels\DescriptionViewModel.cs" />
     <Compile Include="ViewModels\EquationSolverViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\DescriptionView.xaml.cs">
+      <DependentUpon>DescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrigonometryView.xaml.cs">
+      <DependentUpon>TrigonometryView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Themes\ButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\TextBoxTheme.xaml" />
+    <Page Include="Views\DescriptionView.xaml" />
     <Page Include="Views\EquationSolverView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +104,7 @@
     </Compile>
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\CommandBase.cs" />
+    <Compile Include="ViewModels\TrigonometryViewModel.cs" />
     <Compile Include="Views\EquationSolverView.xaml.cs">
       <DependentUpon>EquationSolverView.xaml</DependentUpon>
     </Compile>
@@ -96,6 +115,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\TrigonometryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -115,6 +138,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Ubuntu-Regular.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,11 +147,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\description.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\description1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdditionalFiles\Description.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

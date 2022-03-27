@@ -12,9 +12,12 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
+        FontFamily="{StaticResource Ubuntu}"
         AllowsTransparency="True"
-        x:Name="mainWindow">
-    <Border Background="#0F0F2D" CornerRadius="10">
+        WindowStartupLocation="CenterScreen"
+        x:Name="mainWindow"
+        xml:lang="ru">
+    <Border Background="{StaticResource Primary}" CornerRadius="10">
         <Grid>
             <Grid.Resources>
                 <DataTemplate DataType ="{x:Type viewModel:HomeViewModel}">
@@ -23,46 +26,79 @@
                 <DataTemplate DataType ="{x:Type viewModel:EquationSolverViewModel}">
                     <view:EquationSolverView/>
                 </DataTemplate>
+                <DataTemplate DataType ="{x:Type viewModel:TrigonometryViewModel}">
+                    <view:TrigonometryView/>
+                </DataTemplate>
             </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <ContentControl
                 Grid.Column="1"
-                Grid.Row="1"
-                Margin="10"
-                Content="{Binding CurrentVM}"/>
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Simple math library"
-                       FontSize="20" 
-                       Foreground="#CFCFCF"
+                Grid.Row="1" Grid.RowSpan="2"
+                Content="{Binding CurrentVM}"
+                Margin="10"/>
+            <Border Grid.Row="0" Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Background="{StaticResource PrimaryLight}">
+                <Grid>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Simple math library"
+                       FontSize="24" 
+                       Foreground="{StaticResource TextColor}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Margin="20,0,0,0"
-            />
-            <StackPanel Orientation="Horizontal"
-                        Grid.Column="1"
-                        Grid.Row="0"
-                        HorizontalAlignment="Right"
-                       >
-               
-                <Button 
-                    VerticalAlignment="Top"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Width="20" Height="20"
-                        Margin="10"
-                        CommandParameter="{Binding ElementName=mainWindow}"
-                        Command="{Binding Close}">
+                />
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                        <Button 
+                            Style="{StaticResource CoolButton}"
+                            VerticalAlignment="Top"
+                            Background="Transparent"
+                            Width="20" Height="20"
+                            CommandParameter="{Binding ElementName=mainWindow}"
+                            Command="{Binding Close}">
+                                <Viewbox>
+                                    <Image Source="{StaticResource cross}"/>
+                                </Viewbox>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <StackPanel Background="{StaticResource PanelColor}" Grid.Column="0" Grid.Row="1">
+                <RadioButton Style="{StaticResource MenuButton}"
+                             Content="Главная"
+                             Foreground="#CFCFCF"
+                             Command="{Binding ToHomeView}"/>
+                <RadioButton Style="{StaticResource MenuButton}"
+                             Content="Уравнения"
+                             Foreground="{StaticResource TextColor}"
+                             Command="{Binding ToEquationSolverView}"
+                             />
+                <RadioButton Style="{StaticResource MenuButton}"
+                             Content="Тригонометрия"
+                             Foreground="#CFCFCF"
+                             Command="{Binding ToTrigonometryView}"
+                             />
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="2" Background="{StaticResource PrimaryLight}">
+                <Button Style="{StaticResource CoolButton}"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Width="40" Height="40"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Command="{Binding ShowDescription}">
                     <Viewbox>
-                        <Image Source="{StaticResource cross}"/>
+                        <Image Source="{StaticResource description}"/>
                     </Viewbox>
                 </Button>
-                
             </StackPanel>
         </Grid>
     </Border>

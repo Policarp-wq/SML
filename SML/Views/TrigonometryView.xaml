@@ -6,8 +6,11 @@
              xmlns:local="clr-namespace:SML.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="AliceBlue">
+             Background="{StaticResource Primary}"
+             xml:lang="ru"
+             FontFamily="{StaticResource Ubuntu}"
+             >
     <Grid>
-            
+        <TextBlock Text="Тригонометиря" Foreground="{StaticResource TextColor}"/>
     </Grid>
 </UserControl>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SML.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600"
-             Background="#0F0F2D">
+             Background="{StaticResource Primary}">
     <Grid>
         <TextBox Style="{StaticResource CoolTextBox}" Text=" Lol" Width="250" Height="40"/>
     </Grid>

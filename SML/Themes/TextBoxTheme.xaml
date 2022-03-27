@@ -12,6 +12,7 @@
                                      BorderThickness="0"
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
+                                     HorizontalAlignment="Center"
                                      Foreground="#CFCFCF"
                                      ></TextBox>
                         </Grid>

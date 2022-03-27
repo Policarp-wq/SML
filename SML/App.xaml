@@ -7,9 +7,19 @@
              >
     <Application.Resources>
         <ResourceDictionary>
+            <SolidColorBrush x:Key="Primary" Color="#272537"></SolidColorBrush>
+            <SolidColorBrush x:Key="PanelColor" Color="#4a4763"></SolidColorBrush>
+            <SolidColorBrush x:Key="PrimaryLight" Color="#403d5c"></SolidColorBrush>
+            <SolidColorBrush x:Key="TextColor" Color="#CFCFCF"></SolidColorBrush>
+            <SolidColorBrush x:Key="MouseOverColor" Color="#757196"></SolidColorBrush>
             <BitmapImage x:Key="cross" UriSource="Assets/cross.png"/>
+            <BitmapImage x:Key="calc" UriSource="Assets/calculator.png"/>
+            <BitmapImage x:Key="description" UriSource="Assets/description.png"/>
+            <FontFamily x:Key="Ubuntu">./Fonts/Ubuntu-Regular.ttf#Ubuntu</FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Themes/ButtonTheme.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
