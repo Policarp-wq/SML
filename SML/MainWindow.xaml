@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SML"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:view ="clr-namespace:SML.Views"
         xmlns:viewModel="clr-namespace:SML.ViewModels"
         mc:Ignorable="d"
@@ -43,10 +43,18 @@
                 Grid.Column="1"
                 Grid.Row="1" Grid.RowSpan="2"
                 Content="{Binding CurrentVM}"
-                Margin="10"/>
+                Margin="10"
+                />
+            
             <Border Grid.Row="0" Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    Background="{StaticResource PrimaryLight}">
+                    Background="{StaticResource PrimaryLight}"
+                    >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding DragWindow}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <Grid>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Simple math library"
                        FontSize="24" 
@@ -57,8 +65,9 @@
                 />
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Right">
+                       
                         <Button 
-                            Style="{StaticResource CoolButton}"
+                            Style="{StaticResource ButtonWithImage}"
                             VerticalAlignment="Top"
                             Background="Transparent"
                             Width="20" Height="20"
@@ -88,7 +97,7 @@
                              />
             </StackPanel>
             <StackPanel Grid.Column="0" Grid.Row="2" Background="{StaticResource PrimaryLight}">
-                <Button Style="{StaticResource CoolButton}"
+                <Button Style="{StaticResource ButtonWithImage}"
                          Background="Transparent"
                          BorderThickness="0"
                          Width="40" Height="40"

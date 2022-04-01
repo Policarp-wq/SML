@@ -1,25 +1,25 @@
 ﻿<Application x:Class="SML.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:viewModel ="clr-namespace:SML.ViewModels"
-             xmlns:view ="clr-namespace:SML.Views"
-             xmlns:local="clr-namespace:SML"
-             >
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <SolidColorBrush x:Key="Primary" Color="#272537"></SolidColorBrush>
-            <SolidColorBrush x:Key="PanelColor" Color="#4a4763"></SolidColorBrush>
-            <SolidColorBrush x:Key="PrimaryLight" Color="#403d5c"></SolidColorBrush>
-            <SolidColorBrush x:Key="TextColor" Color="#CFCFCF"></SolidColorBrush>
-            <SolidColorBrush x:Key="MouseOverColor" Color="#757196"></SolidColorBrush>
+            <SolidColorBrush x:Key="Primary" Color="#272537" />
+            <SolidColorBrush x:Key="PanelColor" Color="#4a4763" />
+            <SolidColorBrush x:Key="PrimaryLight" Color="#403d5c" />
+            <SolidColorBrush x:Key="TextColor" Color="#CFCFCF" />
+            <SolidColorBrush x:Key="MouseOverColor" Color="#757196" />
             <BitmapImage x:Key="cross" UriSource="Assets/cross.png"/>
             <BitmapImage x:Key="calc" UriSource="Assets/calculator.png"/>
             <BitmapImage x:Key="description" UriSource="Assets/description.png"/>
+            <BitmapImage x:Key="circle" UriSource="Assets/circle.png"/>
             <FontFamily x:Key="Ubuntu">./Fonts/Ubuntu-Regular.ttf#Ubuntu</FontFamily>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Themes/TextBoxTheme.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="Themes/ButtonTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Themes/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Themes/ComboBoxTheme.xaml" />
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/TextBlockTheme.xaml" />
+                <ResourceDictionary Source="Themes/ButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/TextButtonTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

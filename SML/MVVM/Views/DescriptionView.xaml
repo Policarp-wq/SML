@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:SML.Views"
         mc:Ignorable="d"
         Title="DescriptionView" Height="450" Width="400"
         WindowStyle="None"
@@ -34,7 +33,7 @@
                     <Rectangle Grid.Row = "2" Grid.ColumnSpan="3"
                                Fill="{StaticResource PrimaryLight}"/>
                     <Button Grid.Row="0" Grid.Column="2"
-                            Style="{StaticResource CoolButton}"
+                            Style="{StaticResource ButtonWithImage}"
                             VerticalAlignment="Top"
                             Background="Transparent"
                             BorderThickness="0"
