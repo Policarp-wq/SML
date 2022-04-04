@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using SimpleMathLibrary;
 using SML.Commands;
@@ -8,35 +8,84 @@ using SML.Models;
 
 namespace SML.ViewModels
 {
-    internal class TrigonometryViewModel : ObservableObject
+    public class TrigonometryViewModel : ObservableObject
     {
-        private string _angleValue = string.Empty;
         public List<PresentatedFunction> Functions { get; set; }
         public List<PresentatedFunction> ArcFunctions { get; set; }
-        public PresentatedFunction SelectedFunction { get; set; }
+        
         public bool IsRadian { get; set; }
-        public ICommand ShowDialog { get; }
-
-        public string AngleValue
+        
+        public ICommand GetResults { get; }
+        
+        private PresentatedFunction _selectedtrig;
+        public PresentatedFunction SelectedTrig
         {
-            get => _angleValue;
+            get => _selectedtrig;
             set
             {
-                _angleValue = value;
+                _selectedtrig = value;
+                OnPropertyChanged();
+            }
+        }
+        private PresentatedFunction _selectedArcTrig;
+        public PresentatedFunction SelectedArcTrig
+        {
+            get => _selectedArcTrig;
+            set
+            {
+                _selectedArcTrig = value;
+                OnPropertyChanged();
+            }
+        }
+    
+
+        public PresentatedFunction SelectedFunction { get; set; }
+
+
+        private string _trigStr = "30";
+
+        public string TrigStr
+        {
+            get => _trigStr;
+            set
+            {
+                _trigStr = value;
                 OnPropertyChanged();
             }
         }
 
-        public PresentatedFunction SelectedTrig;
-        public PresentatedFunction SelectedArcTrig;
-        public TrigonometryViewModel()
+        private string _arcTrigStr;
+
+        public string ArcTrigStr
         {
-            ShowDialog = new RelayCommand((o => MessageBox.Show("Testing")));
+            get => _arcTrigStr;
+            set
+            {
+                _arcTrigStr = value;
+                OnPropertyChanged();
+            }
+        }
+        
+
+        public TrigonometryViewModel()
+        { 
             Functions = new List<PresentatedFunction>()
             {
-                new PresentatedFunction("Sin", o => TrigonometricFunctions.Sin((double) o)),
-                new PresentatedFunction("Cos", o => TrigonometricFunctions.Cos((double) o)),
-                new PresentatedFunction("Tan", o => TrigonometricFunctions.Tan((double) o)),
+                new PresentatedFunction("Sin", o =>
+                {
+                    var t = o as Tuple<double, bool>;
+                    return Math.Round(TrigonometricFunctions.Sin(t.Item1, t.Item2), 5);
+                }),
+                new PresentatedFunction("Cos", o =>
+                {
+                    var t = o as Tuple<double, bool>;
+                    return Math.Round(TrigonometricFunctions.Cos(t.Item1, t.Item2), 5);
+                }),
+                new PresentatedFunction("Tan", o =>
+                {
+                    var t = o as Tuple<double, bool>;
+                    return Math.Round(TrigonometricFunctions.Tan(t.Item1, t.Item2), 5);
+                }),   
             };
             ArcFunctions = new List<PresentatedFunction>()
             {
@@ -44,6 +93,9 @@ namespace SML.ViewModels
                 new PresentatedFunction("ArcCos", o => TrigonometricFunctions.Acos((double) o)),
                 new PresentatedFunction("ArcTan", o => TrigonometricFunctions.Atan((double) o)),
             };
+            GetResults = new TrigonometricCommand(this);
+            SelectedTrig = Functions[0];
+            SelectedArcTrig = ArcFunctions[0];
         }
     }
 }

@@ -8,13 +8,14 @@
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Grid Background="#CFCFCF">
                         <TextBox x:Name="Box"
-                                 Margin="1" Text="{TemplateBinding Text}"
+                                 Margin="1"
+                                 Text="{TemplateBinding Text}"
                                  BorderThickness="0"
                                  Background="Transparent"
                                  VerticalContentAlignment="Center"
                                  HorizontalAlignment="Stretch"
                                  Foreground="Black"
-                                 FontSize="{TemplateBinding FontSize}"/>
+                                 />
                         
                         <TextBlock IsHitTestVisible="False"
                                    VerticalAlignment="Center"

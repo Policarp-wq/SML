@@ -18,6 +18,19 @@ namespace SML.ViewModels
         public ICommand ToTrigonometryView { get; }
         public ICommand ShowDescription { get; }
         public ICommand DragWindow { get; }
+        public ICommand Push { get; }
+        private string _test;
+
+        public string Test
+        {
+            get => _test;
+            set
+            {
+                _test = value;
+                OnPropertyChanged();
+            }
+        }
+    
         public MainViewModel(NavigationStore navigationStore, Window window)
         {
             _window = window;
@@ -31,6 +44,7 @@ namespace SML.ViewModels
             ShowDescription = new RelayCommand((o =>
             {
                 var v = new DescriptionView() {DataContext = new DescriptionViewModel()}; v.Show(); }));
+            Push = new RelayCommand((o => MessageBox.Show(Test)));
         }
         private void OnCurrentVMChanged()
         {
