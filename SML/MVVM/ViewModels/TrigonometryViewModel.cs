@@ -66,7 +66,7 @@ namespace SML.ViewModels
             }
         }
         
-
+//ToDo При использовании . вместо , происходит закрытие проги, нужен валидатор!
         public TrigonometryViewModel()
         { 
             Functions = new List<PresentatedFunction>()
@@ -89,9 +89,21 @@ namespace SML.ViewModels
             };
             ArcFunctions = new List<PresentatedFunction>()
             {
-                new PresentatedFunction("ArcSin", o => TrigonometricFunctions.Asin((double) o)),
-                new PresentatedFunction("ArcCos", o => TrigonometricFunctions.Acos((double) o)),
-                new PresentatedFunction("ArcTan", o => TrigonometricFunctions.Atan((double) o)),
+                new PresentatedFunction("ArcSin", o =>
+                {
+                    var t = o as Tuple<double, bool>;
+                    return Math.Round(TrigonometricFunctions.Asin(t.Item1, t.Item2));
+                }),
+                new PresentatedFunction("ArcCos", o =>
+                {
+                    var t = o as Tuple<double, bool>;
+                    return Math.Round(TrigonometricFunctions.Acos(t.Item1, t.Item2));
+                }),
+                new PresentatedFunction("ArcTan", o =>
+                {
+                    var t = o as Tuple<double, bool>;
+                    return Math.Round(TrigonometricFunctions.Atan(t.Item1, t.Item2));
+                })
             };
             GetResults = new TrigonometricCommand(this);
             SelectedTrig = Functions[0];

@@ -19,7 +19,7 @@ namespace SML.Commands
             if(_trigVM.TrigStr != null)
                 _trigVM.TrigStr = _trigVM.SelectedTrig.Function(Tuple.Create(double.Parse(_trigVM.TrigStr), _trigVM.IsRadian)).ToString();
             if(_trigVM.ArcTrigStr != null)
-                _trigVM.ArcTrigStr = _trigVM.SelectedArcTrig.Function(Tuple.Create(_trigVM.ArcTrigStr, _trigVM.IsRadian)).ToString();
+                _trigVM.ArcTrigStr = _trigVM.SelectedArcTrig.Function(Tuple.Create(double.Parse(_trigVM.ArcTrigStr), _trigVM.IsRadian)).ToString();
         }
     }
 }
