@@ -16,7 +16,8 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         x:Name="mainWindow"
-        xml:lang="ru">
+        xml:lang="ru"
+        Icon="{StaticResource logo}">
     <Border Background="{StaticResource Primary}" CornerRadius="10">
         <Grid>
             <Grid.Resources>
@@ -29,6 +30,9 @@
                 <DataTemplate DataType ="{x:Type viewModel:TrigonometryViewModel}">
                     <view:TrigonometryView/>
                 </DataTemplate>
+                <!--<DataTemplate DataType="{x:Type viewModel:NumberTheoryViewModel}">
+                    <view:NumberTheoryView/>
+                </DataTemplate>-->
             </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -56,51 +60,51 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <Grid>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Simple math library"
-                       FontSize="24" 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Column="1" Margin="5,0,0,0">
+                        <Image Source="{StaticResource logoimg}"/>
+                    </Viewbox>
+                    <TextBlock Grid.Column="0"                Text="Simple math library"
+                       Style="{StaticResource NameBlock}"
                        Foreground="{StaticResource TextColor}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       Margin="20,0,0,0"
+                       Margin="0,0,0,0"
                 />
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Right">
-                       
-                        <Button 
+
+                    <Button Grid.Column="2"
+                            HorizontalAlignment="Right"
                             Style="{StaticResource ButtonWithImage}"
                             VerticalAlignment="Top"
                             Background="Transparent"
                             Width="20" Height="20"
-                            CommandParameter="{Binding ElementName=mainWindow}"
+                            CommandParameter="{Binding                         ElementName=mainWindow}"
                             Command="{Binding Close}">
-                                <Viewbox>
-                                    <Image Source="{StaticResource cross}"/>
-                                </Viewbox>
-                        </Button>
-                    </StackPanel>
+                        <Viewbox>
+                            <Image Source="{StaticResource cross}"/>
+                        </Viewbox>
+                    </Button>
                 </Grid>
             </Border>
             <StackPanel Background="{StaticResource PanelColor}" Grid.Column="0" Grid.Row="1">
                 <RadioButton Style="{StaticResource MenuButton}"
                              Content="Главная"
-                             Foreground="#CFCFCF"
                              Command="{Binding ToHomeView}"/>
                 <RadioButton Style="{StaticResource MenuButton}"
                              Content="Уравнения"
-                             Foreground="{StaticResource TextColor}"
                              Command="{Binding ToEquationSolverView}"
                              />
                 <RadioButton Style="{StaticResource MenuButton}"
                              Content="Тригонометрия"
-                             Foreground="#CFCFCF"
                              Command="{Binding ToTrigonometryView}"
                              />
-                <TextBox
-                    Style="{StaticResource TextBoxWithHint}"
-                    Text="{Binding Test}"/>
-                <Button
-                    Content="push"
-                    Command="{Binding Push}"/>
+                <RadioButton Style="{StaticResource MenuButton}"
+                             Content="Теория чисел"
+                             />
             </StackPanel>
             <StackPanel Grid.Column="0" Grid.Row="2" Background="{StaticResource PrimaryLight}">
                 <Button Style="{StaticResource ButtonWithImage}"

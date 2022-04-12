@@ -92,17 +92,17 @@ namespace SML.ViewModels
                 new PresentatedFunction("ArcSin", o =>
                 {
                     var t = o as Tuple<double, bool>;
-                    return Math.Round(TrigonometricFunctions.Asin(t.Item1, t.Item2));
+                    return Math.Round(TrigonometricFunctions.Asin(t.Item1, t.Item2), 5);
                 }),
                 new PresentatedFunction("ArcCos", o =>
                 {
                     var t = o as Tuple<double, bool>;
-                    return Math.Round(TrigonometricFunctions.Acos(t.Item1, t.Item2));
+                    return Math.Round(TrigonometricFunctions.Acos(t.Item1, t.Item2), 5);
                 }),
                 new PresentatedFunction("ArcTan", o =>
                 {
                     var t = o as Tuple<double, bool>;
-                    return Math.Round(TrigonometricFunctions.Atan(t.Item1, t.Item2));
+                    return Math.Round(TrigonometricFunctions.Atan(t.Item1, t.Item2), 5);
                 })
             };
             GetResults = new TrigonometricCommand(this);

@@ -10,19 +10,18 @@ namespace SML.ViewModels
     public class DescriptionViewModel : ObservableObject
     {
         public string DescriptionText { get; set; }
-        private static string DescriptionPath = "C:/Users/Professional/source/repos/SML/SML/AdditionalFiles/Description.txt";
+        private static string DescriptionPath = @"C:\Users\Professional\source\repos\SML\SML\AdditionalFiles\Description.txt";
         
         public ICommand Close { get; } 
         public DescriptionViewModel()
         {
             try
             {
-                DescriptionText =
-                    StringHandler.StringArrayToString(TextManager.GetTextFromFile(DescriptionPath));
+                DescriptionText = TextManager.GetTextFromFile(DescriptionPath);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                DescriptionText = "Wrong path to the description file : " + DescriptionPath;
+                DescriptionText = ex.Message;
             }
             Close = new RelayCommand((param) =>
             {

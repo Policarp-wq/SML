@@ -15,6 +15,7 @@
                                    VerticalAlignment="Center"
                                    Margin="30,0,0,0"
                                    FontSize="18"
+                                   Foreground="#CFCFCF"
                                    />
                     </Border>
                 </ControlTemplate>

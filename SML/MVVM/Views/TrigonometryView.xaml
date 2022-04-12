@@ -23,7 +23,7 @@
         <TextBlock Grid.ColumnSpan="2"
                    Text="Тригонометрия"
                    Style="{StaticResource NameBlock}"
-                   FontSize="24"
+                  
                    Margin="5,5,0,0"/>
         <Grid Grid.Row="1" Grid.Column="0"
               Grid.ColumnSpan="2"

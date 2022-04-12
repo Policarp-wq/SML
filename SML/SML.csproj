@@ -67,6 +67,9 @@
     <Compile Include="Commands\TrigonometricCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Custom UIE\DoubleTextBox.xaml.cs">
+      <DependentUpon>DoubleTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\Models\PresentatedFunction.cs" />
     <Compile Include="MVVM\Models\StringHandler.cs" />
     <Compile Include="MVVM\Models\TextManager.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="MVVM\ViewModels\EquationSolverViewModel.cs" />
     <Compile Include="MVVM\ViewModels\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModels\MainViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\NumberTheoryViewModel.cs" />
     <Compile Include="MVVM\ViewModels\TrigonometryViewModel.cs" />
     <Compile Include="MVVM\Views\DescriptionView.xaml.cs">
       <DependentUpon>DescriptionView.xaml</DependentUpon>
@@ -84,15 +88,26 @@
     <Compile Include="MVVM\Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\Views\NumberTheoryView.xaml.cs">
+      <DependentUpon>NumberTheoryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\Views\TrigonometryView.xaml.cs">
       <DependentUpon>TrigonometryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Stores\NavigationStore.cs" />
+    <Page Include="Custom UIE\DoubleTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\Views\DescriptionView.xaml" />
     <Page Include="MVVM\Views\EquationSolverView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\Views\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\NumberTheoryView.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\Views\TrigonometryView.xaml">
@@ -168,6 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdditionalFiles\Description.txt" />
+    <Resource Include="Assets\LogoImg.png" />
+    <Resource Include="Assets\Logo.ico" />
+    <Resource Include="AdditionalFiles\Equation tips.txt" />
     <Resource Include="Assets\circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

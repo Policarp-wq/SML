@@ -12,6 +12,8 @@
             <BitmapImage x:Key="calc" UriSource="Assets/calculator.png"/>
             <BitmapImage x:Key="description" UriSource="Assets/description.png"/>
             <BitmapImage x:Key="circle" UriSource="Assets/circle.png"/>
+            <BitmapImage x:Key="logo" UriSource="Assets/Logo.ico"/>
+            <BitmapImage x:Key="logoimg" UriSource="Assets/LogoImg.png"/>
             <FontFamily x:Key="Ubuntu">./Fonts/Ubuntu-Regular.ttf#Ubuntu</FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml" />

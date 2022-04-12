@@ -53,10 +53,9 @@
                                />
             <TextBlock Grid.Row="1" Grid.Column="1"
                                Margin="5"
-                               FontSize="18"
-                               Foreground="{StaticResource TextColor}"
+                               Style="{StaticResource Description}"
                                Text="{Binding DescriptionText}"
-                               TextWrapping="Wrap"
+                               
                                />
         </Grid>
         </Border>
