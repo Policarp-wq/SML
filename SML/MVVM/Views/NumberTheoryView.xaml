@@ -46,36 +46,147 @@
             <TextBlock Grid.Row="0"
                        Style="{StaticResource NameBlock}"
                        Text="Вычисление НОД и НОК"/>
-            <c:FuncBox
-                Grid.Row="1"
-                FirstParam="{Binding FirstParam}"
-                SecondParam="{Binding SecondParam}"
-                Functions="{Binding TwoArgumentFunctions}"
-                SelectedFunc="{Binding TwoArgumentFunctionSelected}"
-                Answer="{Binding TwoArgRes}"
-                />
+            
+            <!--НОК НОД-->
+            <Grid Grid.Row="1" Margin="5" Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox Grid.Column="0"
+                  Height="30"
+                  Margin="0,0,5,0"
+                  MinWidth="100"
+                  ItemsSource="{Binding TwoArgumentFunctions}"
+                  SelectedItem="{Binding TwoArgumentFunctionSelected}"
+                  HorizontalContentAlignment="Left"  
+                  VerticalContentAlignment="Center"
+                  >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel 
+                     Orientation="Horizontal"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center">
+                                <Ellipse Width="15" Height="15" Fill="Black"
+                                       Margin="5,0,10,0"/>
+                                <TextBlock Text="{Binding FunctionName}"
+                                       Foreground="Black"
+                                       Background="Transparent"
+                                       TextAlignment="Left"
+                                       />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+				         Style="{StaticResource TextBoxWithHint}"
+				         Margin="0,0,5,0"
+				         Text="{Binding FirstParam}"
+				         Tag="|"
+				 />
+                    <TextBox Grid.Column="1"
+				         Style="{StaticResource TextBoxWithHint}"
+				         Margin="5,0,0,0"
+				         Text="{Binding SecondParam}"
+				         Tag="||"
+				 />
+                </Grid>
+                <TextBox Grid.Column="3"
+                     Margin="15,0,10,0"
+                     Style="{StaticResource AnswerBox}"
+                     Text="{Binding TwoArgRes}"/>
+            </Grid>
+            <!--НОК НОД-->
+            
+            
             <TextBlock Grid.Row="2"
                        Style="{StaticResource NameBlock}"
                        Text="Вычисление логарифма"/>
-            <c:StaticFuncBox
-                x:Name="log"
-                Grid.Row="3" 
-                FirstParam="{Binding LogBase}"
-                SecondParam="{Binding LogArg}"
-                Answer="{Binding LogRes}"
-                FirstTag="Основание"
-                SecondTag= "Аргумент"
-                />
+
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+				         Style="{StaticResource TextBoxWithHint}"
+				         Margin="0,0,5,0"
+				         Text="{Binding LogBase}"
+				         Tag="Основание"
+				 />
+                    <TextBox Grid.Column="1"
+				         Style="{StaticResource TextBoxWithHint}"
+				         Margin="5,0,0,0"
+				         Text="{Binding LogArg}"
+				         Tag="Аргумент"
+				 />
+                </Grid>
+                <TextBox Grid.Column="1"
+                     Margin="15,0,10,0"
+                     Style="{StaticResource AnswerBox}"
+                     Text="{Binding LogRes}"/>
+            </Grid>
             <TextBlock Grid.Row="4"
                        Style="{StaticResource NameBlock}"
                        Text="Проверка числа"/>
-            <c:FuncBoxOne
-                Grid.Row="5"
-                Argument="{Binding CheckingNum}"
-                Answer="{Binding BoolRes}"
-                Functions="{Binding BooleanFunctions}"
-                SelectedFunc="{Binding BooleanFunctionSelected}"
-                />
+
+            <Grid Grid.Row="5" Margin="5" Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox
+                    Grid.Column="0"
+                    Height="30"
+                  Margin="0,0,5,0"
+                  MinWidth="100"
+                  ItemsSource="{Binding BooleanFunctions}"
+                  SelectedItem="{Binding BooleanFunctionSelected}"
+                  HorizontalContentAlignment="Center"  
+                  VerticalContentAlignment="Center">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel 
+                                 Orientation="Horizontal"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center">    
+                                <Ellipse Width="15" Height="15" Fill="Black"
+                                       Margin="5,0,10,0"/>
+                                <TextBlock Text="{Binding FunctionName}"
+                                       Foreground="Black"
+                                       Background="Transparent"
+                                       TextAlignment="Left"
+                                       />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox Grid.Column="1" Margin="5,0,0,0"
+                     Style="{StaticResource TextBoxWithHint}"
+                     Text="{Binding CheckingNum}"
+                     Tag="|"/>
+                <TextBox Grid.Column="2" Margin="15,0,0,0"
+                     Style="{StaticResource AnswerBox}"
+                     Text="{Binding BoolRes}"
+                     MinWidth="75"/>
+            </Grid>
+
+
             <TextBlock Grid.Row="6"
                        Style="{StaticResource NameBlock}"
                        Text="Разложение числа"/>
@@ -88,8 +199,6 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <!--<TextBox Style="{StaticResource AnswerBox}"
-                         Text="Разложение на множетели"/>-->
                 <TextBox Grid.Column="1"
                         
                     Style="{StaticResource TextBoxWithHint}"

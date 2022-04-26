@@ -20,6 +20,9 @@
         </Grid.RowDefinitions>
         <TextBlock
             Text="Уравнения"
+            FontSize="24"
+            VerticalAlignment="Top"
+            Margin="5"
             Style="{StaticResource NameBlock}"/>
         <TextBlock Grid.Column="2" Grid.Row="0"
                    Grid.RowSpan="2"

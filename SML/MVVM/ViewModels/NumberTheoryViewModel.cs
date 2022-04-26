@@ -188,7 +188,7 @@ namespace SML.ViewModels
             SolveLog = new RelayCommand((o) =>
             {
                 Parser.ToTwoInts(LogBase, LogArg, out int a, out int b);
-                LogRes = AppliedFunctions.Log(a, b).ToString();
+                LogRes = Math.Round(AppliedFunctions.Log(a, b),5).ToString();
             }); //, b => Parser.CanParseToTwoInts(LogBase, LogArg)
             GetDecomp = new RelayCommand(o =>
             {
