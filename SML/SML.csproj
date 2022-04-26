@@ -70,6 +70,16 @@
     <Compile Include="Custom UIE\DoubleTextBox.xaml.cs">
       <DependentUpon>DoubleTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Custom UIE\FuncBox.xaml.cs">
+      <DependentUpon>FuncBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom UIE\FuncBoxOne.xaml.cs">
+      <DependentUpon>FuncBoxOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom UIE\StaticFuncBox.xaml.cs">
+      <DependentUpon>StaticFuncBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Models\Parser.cs" />
     <Compile Include="MVVM\Models\PresentatedFunction.cs" />
     <Compile Include="MVVM\Models\StringHandler.cs" />
     <Compile Include="MVVM\Models\TextManager.cs" />
@@ -99,6 +109,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Custom UIE\FuncBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Custom UIE\FuncBoxOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Custom UIE\StaticFuncBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\Views\DescriptionView.xaml" />
     <Page Include="MVVM\Views\EquationSolverView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -119,6 +141,10 @@
     </Page>
     <Page Include="Themes\ComboBoxTheme.xaml" />
     <Page Include="Themes\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Templates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,6 +185,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\Ubuntu-Regular.ttf" />
+    <Resource Include="Fonts\Montserrat-VariableFont_wght.ttf" />
+    <None Include="Fonts\NeoEuler-VGO00.ttf" />
+    <Resource Include="Fonts\RomanFont7-PAwB.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -183,6 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdditionalFiles\Description.txt" />
+    <Resource Include="Assets\SqTable.png" />
     <Resource Include="Assets\LogoImg.png" />
     <Resource Include="Assets\Logo.ico" />
     <Resource Include="AdditionalFiles\Equation tips.txt" />

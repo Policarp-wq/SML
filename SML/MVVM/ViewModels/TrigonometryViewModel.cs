@@ -15,8 +15,10 @@ namespace SML.ViewModels
         
         public bool IsRadian { get; set; }
         
-        public ICommand GetResults { get; }
-        
+        public ICommand SolveAngle { get; }
+        public ICommand SolveArc { get; }
+
+
         private PresentatedFunction _selectedtrig;
         public PresentatedFunction SelectedTrig
         {
@@ -42,7 +44,7 @@ namespace SML.ViewModels
         public PresentatedFunction SelectedFunction { get; set; }
 
 
-        private string _trigStr = "30";
+        private string _trigStr;
 
         public string TrigStr
         {
@@ -74,17 +76,23 @@ namespace SML.ViewModels
                 new PresentatedFunction("Sin", o =>
                 {
                     var t = o as Tuple<double, bool>;
-                    return Math.Round(TrigonometricFunctions.Sin(t.Item1, t.Item2), 5);
+                    if(t is null)
+                        return "Wrong input";
+                    return Math.Round(TrigonometricFunctions.Sin(t.Item1, t.Item2), 1);
                 }),
                 new PresentatedFunction("Cos", o =>
                 {
                     var t = o as Tuple<double, bool>;
-                    return Math.Round(TrigonometricFunctions.Cos(t.Item1, t.Item2), 5);
+                    if(t is null)
+                        return "Wrong input";
+                    return Math.Round(TrigonometricFunctions.Cos(t.Item1, t.Item2), 1);
                 }),
                 new PresentatedFunction("Tan", o =>
                 {
                     var t = o as Tuple<double, bool>;
-                    return Math.Round(TrigonometricFunctions.Tan(t.Item1, t.Item2), 5);
+                    if(t is null)
+                        return "Wrong input";
+                    return Math.Round(TrigonometricFunctions.Tan(t.Item1, t.Item2), 1);
                 }),   
             };
             ArcFunctions = new List<PresentatedFunction>()
@@ -92,22 +100,35 @@ namespace SML.ViewModels
                 new PresentatedFunction("ArcSin", o =>
                 {
                     var t = o as Tuple<double, bool>;
+                    if(t is null)
+                        return "Wrong input";
                     return Math.Round(TrigonometricFunctions.Asin(t.Item1, t.Item2), 5);
                 }),
                 new PresentatedFunction("ArcCos", o =>
                 {
                     var t = o as Tuple<double, bool>;
+                    if(t is null)
+                        return "Wrong input";
                     return Math.Round(TrigonometricFunctions.Acos(t.Item1, t.Item2), 5);
                 }),
                 new PresentatedFunction("ArcTan", o =>
                 {
                     var t = o as Tuple<double, bool>;
+                    if(t is null)
+                        return "Wrong input";
                     return Math.Round(TrigonometricFunctions.Atan(t.Item1, t.Item2), 5);
                 })
             };
-            GetResults = new TrigonometricCommand(this);
             SelectedTrig = Functions[0];
             SelectedArcTrig = ArcFunctions[0];
+            SolveAngle = new RelayCommand((o) =>
+            {
+                TrigStr = SelectedTrig.Function(new Tuple<double, bool>(double.Parse(TrigStr), IsRadian)).ToString();
+            }, o => !(o is null));
+            SolveArc = new RelayCommand((o) =>
+            {
+                ArcTrigStr = SelectedArcTrig.Function(new Tuple<double, bool>(double.Parse(TrigStr), IsRadian)).ToString();
+            }, o => !(o is null));
         }
     }
 }

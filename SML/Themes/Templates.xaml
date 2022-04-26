@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate
+        x:Key="FunctionsBox">
+        <StackPanel 
+                     Orientation="Horizontal"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center">
+            <Ellipse Width="15" Height="15" Fill="Black"
+                                       Margin="5,0,10,0"/>
+            <TextBlock Text="{Binding FunctionName}"
+                                       Foreground="Black"
+                                       Background="Transparent"
+                                       FontSize="18"
+                                       />
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

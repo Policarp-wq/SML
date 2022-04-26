@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 using SML.Commands;
 using SML.Core;
 using SML.Stores;
@@ -8,13 +9,28 @@ namespace SML.ViewModels
     internal class HomeViewModel : ObservableObject
     {
         private readonly NavigationStore _navigationStore;
-        public ICommand NavigateToEquationSolver { get; }
+        public ICommand Testing { get; }
+
+        private string _test = "Ebat345t";
+
+        public string Test
+        {
+            get { return _test; }
+            set 
+            {
+                _test = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public HomeViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
-            NavigateToEquationSolver =
-                new NavigateCommand(_navigationStore, () => new EquationSolverViewModel(navigationStore));
+            Testing = new RelayCommand((a) =>
+            {
+                MessageBox.Show(_test);
+            });
         }
     }
 }

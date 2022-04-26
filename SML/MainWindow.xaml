@@ -30,9 +30,9 @@
                 <DataTemplate DataType ="{x:Type viewModel:TrigonometryViewModel}">
                     <view:TrigonometryView/>
                 </DataTemplate>
-                <!--<DataTemplate DataType="{x:Type viewModel:NumberTheoryViewModel}">
+                <DataTemplate DataType="{x:Type viewModel:NumberTheoryViewModel}">
                     <view:NumberTheoryView/>
-                </DataTemplate>-->
+                </DataTemplate>
             </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -65,15 +65,14 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Viewbox Grid.Column="1" Margin="5,0,0,0">
-                        <Image Source="{StaticResource logoimg}"/>
-                    </Viewbox>
-                    <TextBlock Grid.Column="0"                Text="Simple math library"
+                    <TextBlock Grid.Column="0" 
+                               Text="Simple math library"
+                               FontSize="24"
                        Style="{StaticResource NameBlock}"
                        Foreground="{StaticResource TextColor}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       Margin="0,0,0,0"
+                       Margin="5,0,0,0"
                 />
 
                     <Button Grid.Column="2"
@@ -104,6 +103,7 @@
                              />
                 <RadioButton Style="{StaticResource MenuButton}"
                              Content="Теория чисел"
+                             Command="{Binding ToNumberTheoryView}"
                              />
             </StackPanel>
             <StackPanel Grid.Column="0" Grid.Row="2" Background="{StaticResource PrimaryLight}">
@@ -113,10 +113,11 @@
                          Width="40" Height="40"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Left"
-                         Command="{Binding ShowDescription}">
-                    <Viewbox>
+                         Command="{Binding ShowDescription}"
+                        >
+                    <Button.Content>
                         <Image Source="{StaticResource description}"/>
-                    </Viewbox>
+                    </Button.Content>
                 </Button>
             </StackPanel>
         </Grid>

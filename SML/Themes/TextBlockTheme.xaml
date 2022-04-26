@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style TargetType="{x:Type TextBlock}"
            x:Key="NameBlock">
-        <Setter Property="FontSize" Value="24"/>
         <Setter Property="Padding" Value="4,2"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#CFCFCF"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
     <Style TargetType="{x:Type TextBlock}"
            x:Key="Description">
@@ -13,5 +13,66 @@
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Padding" Value="2"/>
+    </Style>
+    <Style TargetType="{x:Type TextBox}"
+           x:Key="TextBlock"
+           >
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Background" Value="{DynamicResource GrayBack}"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Padding" Value="6,3"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBlue}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="50"/>
+        <Setter Property="MinHeight" Value="40"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            SnapsToDevicePixels="True">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Focusable="False"
+                                          HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden"/>
+                            <Label x:Name="WaterMarkLabel"
+                                   Content="{TemplateBinding Tag}"
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   FontSize="18"
+                                   FontStyle="Oblique"
+                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   Visibility="Collapsed"
+                                   Foreground="{DynamicResource LigtBlack}"
+                                   Padding="{TemplateBinding Padding}"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Text" Value=""/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AnswerBox" TargetType="{x:Type TextBox}"
+           BasedOn="{StaticResource TextBlock}"
+          >
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    <Style x:Key="HeaderBox" TargetType="{x:Type TextBox}"
+           BasedOn="{StaticResource AnswerBox}">
+        <Setter Property="MinHeight" Value="30"/>
     </Style>
 </ResourceDictionary>

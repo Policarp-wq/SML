@@ -7,14 +7,23 @@
             <SolidColorBrush x:Key="PanelColor" Color="#4a4763" />
             <SolidColorBrush x:Key="PrimaryLight" Color="#403d5c" />
             <SolidColorBrush x:Key="TextColor" Color="#CFCFCF" />
+            <SolidColorBrush x:Key="GrayBack" Color="#CFCFCF"/>
+            <SolidColorBrush x:Key="LineBlue" Color="#023cc7"/>
+            <SolidColorBrush x:Key="SecondaryBlue" Color="#3f52e0"/>
             <SolidColorBrush x:Key="MouseOverColor" Color="#757196" />
+            <SolidColorBrush x:Key="LightYellow" Color="#cafc95" />
+            <SolidColorBrush x:Key="LigtBlack" Color="#363334" />
             <BitmapImage x:Key="cross" UriSource="Assets/cross.png"/>
             <BitmapImage x:Key="calc" UriSource="Assets/calculator.png"/>
             <BitmapImage x:Key="description" UriSource="Assets/description.png"/>
             <BitmapImage x:Key="circle" UriSource="Assets/circle.png"/>
             <BitmapImage x:Key="logo" UriSource="Assets/Logo.ico"/>
             <BitmapImage x:Key="logoimg" UriSource="Assets/LogoImg.png"/>
+            <BitmapImage x:Key="sqtable" UriSource="Assets/SqTable.png"/>
             <FontFamily x:Key="Ubuntu">./Fonts/Ubuntu-Regular.ttf#Ubuntu</FontFamily>
+            <FontFamily x:Key="Monts">./Fonts/Montserrat-VariableFont_wght.ttf#Monts</FontFamily>
+            <FontFamily x:Key="Neo">./Fonts/NeoEuler-VGO00.ttf#Neo</FontFamily>
+            <FontFamily x:Key="Roman">./Fonts/RomanFont7-PAwB.ttf#Roman</FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml" />
                 <ResourceDictionary Source="Themes/ComboBoxTheme.xaml" />
@@ -22,6 +31,7 @@
                 <ResourceDictionary Source="Themes/TextBlockTheme.xaml" />
                 <ResourceDictionary Source="Themes/ButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/TextButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/Templates.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

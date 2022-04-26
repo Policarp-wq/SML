@@ -3,26 +3,130 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-			 xmlns:local="clr-namespace:SML.Views"
-			 mc:Ignorable="d" 
+			 xmlns:local="clr-namespace:SML.Views" xmlns:custom_uie="clr-namespace:SML.Custom_UIE"
+             mc:Ignorable="d" 
 			 Background="{StaticResource Primary}"
 			 FontFamily="{StaticResource Ubuntu}"
-			 d:DesignHeight="450" d:DesignWidth="800">
+             FontSize="18"
+			 d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:c="clr-namespace:SML.Custom_UIE"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0"
                    Style="{StaticResource NameBlock}"
                    Text="Теория чисел"
+                   FontSize="24"
             />
-        <Grid Grid.Row="1" Grid.Column="0">
-            
+        <Grid Grid.Row="1" Grid.Column="0"
+              Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Style="{StaticResource NameBlock}"
+                       Text="Вычисление НОД и НОК"/>
+            <c:FuncBox
+                Grid.Row="1"
+                FirstParam="{Binding FirstParam}"
+                SecondParam="{Binding SecondParam}"
+                Functions="{Binding TwoArgumentFunctions}"
+                SelectedFunc="{Binding TwoArgumentFunctionSelected}"
+                Answer="{Binding TwoArgRes}"
+                />
+            <TextBlock Grid.Row="2"
+                       Style="{StaticResource NameBlock}"
+                       Text="Вычисление логарифма"/>
+            <c:StaticFuncBox
+                x:Name="log"
+                Grid.Row="3" 
+                FirstParam="{Binding LogBase}"
+                SecondParam="{Binding LogArg}"
+                Answer="{Binding LogRes}"
+                FirstTag="Основание"
+                SecondTag= "Аргумент"
+                />
+            <TextBlock Grid.Row="4"
+                       Style="{StaticResource NameBlock}"
+                       Text="Проверка числа"/>
+            <c:FuncBoxOne
+                Grid.Row="5"
+                Argument="{Binding CheckingNum}"
+                Answer="{Binding BoolRes}"
+                Functions="{Binding BooleanFunctions}"
+                SelectedFunc="{Binding BooleanFunctionSelected}"
+                />
+            <TextBlock Grid.Row="6"
+                       Style="{StaticResource NameBlock}"
+                       Text="Разложение числа"/>
+            <Grid Grid.Row="7"  Height="40"
+                  Margin="5"
+                  Grid.ColumnSpan="2"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <!--<TextBox Style="{StaticResource AnswerBox}"
+                         Text="Разложение на множетели"/>-->
+                <TextBox Grid.Column="1"
+                        
+                    Style="{StaticResource TextBoxWithHint}"
+                         Tag="Число"
+                         Text="{Binding DecompNum}"/>
+                <TextBox Grid.Column="2"
+                         Tag="Представление числа"
+                         Style="{StaticResource AnswerBox}"
+                         Margin="15,0,10,0"
+                         Text="{Binding Decomp}"
+                         MinWidth="150"/>
+            </Grid>
+            <Viewbox Grid.Row="0" Grid.Column="1"
+                     VerticalAlignment="Top"
+                   Grid.RowSpan="11"
+                   Height="350"
+                   Width="325">
+                <Image Source="{StaticResource sqtable}"
+                   />
+            </Viewbox>
+            <Button Grid.Row="9" Grid.Column="1"
+                    Content="Рассчитать"
+                    Style="{StaticResource CoolButton}"
+                    Margin="10"
+                    Width="200"
+                    Height="50"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding SolveTwoArgument}"/>
+                        <i:InvokeCommandAction Command="{Binding SolveBoolean}"/>
+                        <i:InvokeCommandAction Command="{Binding SolveLog}"/>
+                        <i:InvokeCommandAction Command="{Binding GetDecomp}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

@@ -1,12 +1,23 @@
 ﻿<UserControl x:Class="SML.Views.HomeView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600"
-             Background="{StaticResource Primary}">
-    <Grid>
-        <TextBox Style="{StaticResource CoolTextBox}" Text=" Lol" Width="250" Height="40"/>
-    </Grid>
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:custom_uie="clr-namespace:SML.Custom_UIE"
+			 mc:Ignorable="d" 
+			 d:DesignHeight="450" d:DesignWidth="600"
+			 Background="{StaticResource Primary}">
+	<Grid>
+		<TextBox Width="100" Height="40"
+				 Style="{StaticResource AnswerBox}"
+				 Text="{Binding Test}"
+				 FontSize="18"
+				 Tag="Введите текст"/>
+		<Button Style="{StaticResource CoolButton}"
+				Width="100" Height="40" VerticalAlignment="Bottom"
+				Command="{Binding Testing}"
+				Content="Push me"
+				/>
+		<custom_uie:DoubleTextBox Width="100" Height="40" VerticalAlignment="Top"
+			    First="{Binding Test}"/>
+	</Grid>
 </UserControl>

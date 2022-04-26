@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using SML.Commands;
 using SML.Core;
@@ -16,6 +17,7 @@ namespace SML.ViewModels
         public ICommand ToEquationSolverView { get; }
         public ICommand ToHomeView { get; }
         public ICommand ToTrigonometryView { get; }
+        public ICommand ToNumberTheoryView { get; }
         public ICommand ShowDescription { get; }
         public ICommand DragWindow { get; }
         public ICommand Push { get; }
@@ -41,10 +43,12 @@ namespace SML.ViewModels
             ToEquationSolverView = new NavigateCommand(_navigationStore, () => new EquationSolverViewModel(_navigationStore));
             ToHomeView = new NavigateCommand(_navigationStore, () => new HomeViewModel(_navigationStore));
             ToTrigonometryView = new NavigateCommand(_navigationStore, () => new TrigonometryViewModel());
+            ToNumberTheoryView = new NavigateCommand(_navigationStore, () => new NumberTheoryViewModel());
             ShowDescription = new RelayCommand((o =>
             {
                 var v = new DescriptionView() {DataContext = new DescriptionViewModel()}; v.Show(); }));
             Push = new RelayCommand((o => MessageBox.Show(Test)));
+            var a = new ComboBox();
         }
         private void OnCurrentVMChanged()
         {
