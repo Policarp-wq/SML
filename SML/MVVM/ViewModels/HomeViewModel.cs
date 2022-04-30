@@ -2,34 +2,52 @@
 using System.Windows.Input;
 using SML.Commands;
 using SML.Core;
+using SML.Models;
 using SML.Stores;
+using SimpleMathLibrary;
+using Equation;
+using System;
 
 namespace SML.ViewModels
 {
     internal class HomeViewModel : ObservableObject
     {
-        private readonly NavigationStore _navigationStore;
-        public ICommand Testing { get; }
+        private static string _path = @"./Additional Files/Home text.txt";
 
-        private string _test = "Ebat345t";
+        private string _description;
 
-        public string Test
+        public string Description
         {
-            get { return _test; }
+            get { return _description; }
+            set { _description = value; }
+        }
+
+        private string _calculation;
+
+        public string Calculation
+        {
+            get { return _calculation; }
             set 
             {
-                _test = value;
+                _calculation = value;
                 OnPropertyChanged();
             }
         }
 
-
-        public HomeViewModel(NavigationStore navigationStore)
+        public ICommand Calculate { get; }
+        public HomeViewModel()
         {
-            _navigationStore = navigationStore;
-            Testing = new RelayCommand((a) =>
+            Description = TextManager.GetTextFromFile(_path);
+            Calculate = new RelayCommand(o =>
             {
-                MessageBox.Show(_test);
+                try
+                {
+                    Calculation = Separator.GetExpression(Calculation).ToString();
+                }
+                catch (Exception ex)
+                {
+                    Calculation = ex.Message;
+                }
             });
         }
     }

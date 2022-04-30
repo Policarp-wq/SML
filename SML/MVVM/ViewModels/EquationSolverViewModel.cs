@@ -4,6 +4,7 @@ using SML.Core;
 using SML.Models;
 using SML.Stores;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
@@ -11,7 +12,7 @@ namespace SML.ViewModels
 {
     internal class EquationSolverViewModel : ObservableObject
     {
-        private static string _path = @"C:\Users\Professional\source\repos\SML\SML\AdditionalFiles\Equation tips.txt";
+        private static string _path = @"./Additional Files/Equation tips.txt";
         private NavigationStore _navigationStore;
         private string _equationString = "";
         public string EqTips { get; set; }
@@ -45,7 +46,7 @@ namespace SML.ViewModels
             {
                 try
                 {
-                    Results = EquationSolver.GetSolutions(EquationString).ToString();
+                    Results =  EquationSolver.GetSolutions(EquationString).ToString();
                 }
                 catch (Exception ex)
                 {
@@ -56,7 +57,7 @@ namespace SML.ViewModels
             {
                 EqTips = TextManager.GetTextFromFile(_path);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 EqTips = ex.Message;
             }

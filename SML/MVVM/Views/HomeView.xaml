@@ -7,17 +7,50 @@
 			 d:DesignHeight="450" d:DesignWidth="600"
 			 Background="{StaticResource Primary}">
 	<Grid>
-		<TextBox Width="100" Height="40"
-				 Style="{StaticResource AnswerBox}"
-				 Text="{Binding Test}"
-				 FontSize="18"
-				 Tag="Введите текст"/>
-		<Button Style="{StaticResource CoolButton}"
-				Width="100" Height="40" VerticalAlignment="Bottom"
-				Command="{Binding Testing}"
-				Content="Push me"
-				/>
-		<custom_uie:DoubleTextBox Width="100" Height="40" VerticalAlignment="Top"
-			    First="{Binding Test}"/>
-	</Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Grid.Column="0"
+                   Style="{StaticResource NameBlock}"
+                   Text="Главная"
+                   FontSize="24"
+                   Margin="5"/>
+        <TextBlock Grid.Row="1" Grid.Column="0"
+                   Style="{StaticResource NameBlock}"
+                   Text="`Арифметику невозможно понять, в нее приходится верить` - Мария Кунцевич"
+                   FontSize="14"
+                   Grid.ColumnSpan="3"
+                   Margin="5"
+                   FontStyle="Italic"/>
+        <TextBlock Grid.Row="2"
+                   Margin="5"
+                   Style="{StaticResource Description}"
+                   Text="{Binding Description}"/>
+        <Grid Grid.Row="3" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Style="{StaticResource NameBlock}"
+                       Text="Упрощатель"
+                       FontSize="18"/>
+            <TextBox Grid.Row="1"
+                     Style="{StaticResource TextBoxWithHint}"
+                     Tag="Начните вводить выражение"
+                     Text="{Binding Calculation}"
+                     FontSize="18"
+                     Margin="5"/>
+            <Button Grid.Row="2"
+                    Style="{StaticResource CoolButton}"
+                    Command="{Binding Calculate}"
+                    Content="Упростить"
+                    MaxWidth="140"/>
+        </Grid>
+    </Grid>
 </UserControl>

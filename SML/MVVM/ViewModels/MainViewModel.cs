@@ -41,7 +41,7 @@ namespace SML.ViewModels
             Close = new RelayCommand((parameter) => {window.Close(); });
             DragWindow = new RelayCommand((parameter) => _window.DragMove());
             ToEquationSolverView = new NavigateCommand(_navigationStore, () => new EquationSolverViewModel(_navigationStore));
-            ToHomeView = new NavigateCommand(_navigationStore, () => new HomeViewModel(_navigationStore));
+            ToHomeView = new NavigateCommand(_navigationStore, () => new HomeViewModel());
             ToTrigonometryView = new NavigateCommand(_navigationStore, () => new TrigonometryViewModel());
             ToNumberTheoryView = new NavigateCommand(_navigationStore, () => new NumberTheoryViewModel());
             ShowDescription = new RelayCommand((o =>

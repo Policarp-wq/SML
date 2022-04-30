@@ -10,7 +10,7 @@ namespace SML
         private NavigationStore _navigationStore = new NavigationStore();
         protected override void OnStartup(StartupEventArgs e)
         {
-            _navigationStore.CurrentVM = new EquationSolverViewModel(_navigationStore);
+            _navigationStore.CurrentVM = new HomeViewModel();
             MainWindow = new MainWindow() { DataContext = new MainViewModel(_navigationStore, MainWindow) };
             MainWindow.Show();
             base.OnStartup(e);
