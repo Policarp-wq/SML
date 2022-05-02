@@ -4,8 +4,6 @@ using SML.Core;
 using SML.Models;
 using SML.Stores;
 using System;
-using System.IO;
-using System.Windows;
 using System.Windows.Input;
 
 namespace SML.ViewModels
@@ -26,7 +24,7 @@ namespace SML.ViewModels
                 OnPropertyChanged();
             }
         }
-        private string _results = "Ответы здеся";
+        private string _results;
 
         public string Results
         {
@@ -52,7 +50,7 @@ namespace SML.ViewModels
                 {
                     Results = ex.Message;
                 }
-            });
+            }, b => !(string.IsNullOrEmpty(EquationString)));
             try
             {
                 EqTips = TextManager.GetTextFromFile(_path);

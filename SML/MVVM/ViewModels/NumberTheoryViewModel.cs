@@ -2,9 +2,6 @@
 using SML.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SimpleMathLibrary;
 using SML.MVVM.Models;
 using System.Windows.Input;
@@ -179,7 +176,7 @@ namespace SML.ViewModels
             {
                 Parser.ToTwoInts(FirstParam, SecondParam, out var a, out var b);
                 TwoArgRes = TwoArgumentFunctionSelected.Function(new Tuple<int, int>(a, b)).ToString();
-            });//, b => Parser.CanParseToTwoInts(FirstParam, SecondParam)
+            }, b => Parser.CanParseToTwoInts(FirstParam, SecondParam));//, b => Parser.CanParseToTwoInts(FirstParam, SecondParam)
             SolveBoolean = new RelayCommand(o =>
             {
                 Parser.ToInt(CheckingNum, out int a);
@@ -189,7 +186,7 @@ namespace SML.ViewModels
             {
                 Parser.ToTwoInts(LogBase, LogArg, out int a, out int b);
                 LogRes = Math.Round(AppliedFunctions.Log(a, b),5).ToString();
-            }); //, b => Parser.CanParseToTwoInts(LogBase, LogArg)
+            }, b => Parser.CanParseToTwoInts(LogBase, LogArg)); //
             GetDecomp = new RelayCommand(o =>
             {
                 Parser.ToInt(DecompNum, out var a);

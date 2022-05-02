@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              Background="{StaticResource Primary}"
              d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              FontFamily="{StaticResource Ubuntu}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -61,9 +62,13 @@
                 MaxWidth="250"
                 Margin="0,20"
                 Style="{StaticResource CoolButton}"
-                Command="{Binding Solve}"
-                CommandParameter="{Binding EquationString}"
-               Content="Решить уравнение"/>
+               Content="Решить уравнение">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding Solve}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
             <TextBox
                 Grid.Row="2" Grid.Column="1"
                 Grid.ColumnSpan="2"
@@ -71,6 +76,7 @@
                 Style="{StaticResource TextBlock}"
                 Background="#CFCFCF"
                 Text="{Binding Results}"
+                Tag="Корни уравнения"
                 Foreground="Black" 
                 Margin="0,20"
                 FontSize="24"

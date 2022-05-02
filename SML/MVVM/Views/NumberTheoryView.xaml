@@ -164,7 +164,7 @@
                             <StackPanel 
                                  Orientation="Horizontal"
                                  HorizontalAlignment="Left"
-                                 VerticalAlignment="Center">    
+                                 VerticalAlignment="Center">
                                 <Ellipse Width="15" Height="15" Fill="Black"
                                        Margin="5,0,10,0"/>
                                 <TextBlock Text="{Binding FunctionName}"
@@ -185,7 +185,6 @@
                      Text="{Binding BoolRes}"
                      MinWidth="75"/>
             </Grid>
-
 
             <TextBlock Grid.Row="6"
                        Style="{StaticResource NameBlock}"

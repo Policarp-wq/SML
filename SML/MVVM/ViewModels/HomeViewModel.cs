@@ -1,10 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using SML.Commands;
 using SML.Core;
 using SML.Models;
-using SML.Stores;
-using SimpleMathLibrary;
 using Equation;
 using System;
 
@@ -48,7 +45,7 @@ namespace SML.ViewModels
                 {
                     Calculation = ex.Message;
                 }
-            });
+            }, b => !(string.IsNullOrEmpty(Calculation)));
         }
     }
 }

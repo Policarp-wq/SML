@@ -127,7 +127,7 @@ namespace SML.ViewModels
             }, o => !(o is null));
             SolveArc = new RelayCommand((o) =>
             {
-                ArcTrigStr = SelectedArcTrig.Function(new Tuple<double, bool>(double.Parse(TrigStr), IsRadian)).ToString();
+                ArcTrigStr = SelectedArcTrig.Function(new Tuple<double, bool>(double.Parse(ArcTrigStr), IsRadian)).ToString();
             }, o => !(o is null));
         }
     }
